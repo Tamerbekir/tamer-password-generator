@@ -97,7 +97,7 @@ confirmUppercase = confirm("Would you like your password to include uppercase ch
   // Fixed issue with function not looping by using RETURN so the user will now have the option to generate a new password without refreshing the page.
   if (confirmNumbers === false && confirmSpecialChars === false && confirmLowercase === false && confirmUppercase === false) {
   alert("No characters selected! You must select at least one character set. Please try again by generating a new password.")
-  {return("No characters selected. Please again.")}
+  {return("No characters selected. Please try again.")}
   }
   
   alert("This is your new password! Do not forget to copy it!")
