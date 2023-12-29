@@ -12,6 +12,7 @@
 
 //! Generate random characters that are between 8-128
 
+
 // Assignment Code
 const generateBtn = document.querySelector("#generate");
 
