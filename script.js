@@ -28,86 +28,87 @@ generateBtn.addEventListener("click", writePassword);
 
 //! Starting HW
 
-//length of password, user enter, which is 8-128.
+//length of password, which user will enter when prompt, which needs to be between 8-128.
 //empty STRING that gets filled by the users slected password amount.
 let confirmLength = "";
 
-//ARRAYS that are going to be used to generate the password
-// let numbers = ("0", "1", "2", "3", "4", "5", "6", "7", "8", "9");
-// let symbols = ("~", "!", "@", "#", "$", "$", "%", "&", "*", "-", "_", "+","=");
-// let lowercase = ("a", "b", "c", "d", "e", "f", "g","h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z");
-// let uppercase = ("A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z");
-
-let numbers = (123456789);
-let symbols = ("~!@#$%&*-_+=<>");
+//STRINGS that are going to be used to generate the password
+let numbers = (1234567890);
+let specialChars = ("~!@#$%&*-_+=<>");
 let lowercase = ("abcdefghijklmnopqrstuvwxyz");
 let uppercase = ("ABCDEFGHIJKLMNOPQRSTUVQXYZ");
 
 
-// VARIABLES the user picks from 
+// VARIABLES the user picks from when confirming
 let confirmNumbers
-let confirmSymbols
+let confirmSpecialChars
 let confirmLowercase
 let confirmUppercase
 
 function generatePassword() {
-  alert("Please create a password");
-  confirmLength = prompt("Please enter a password between 8-128 characters long");
+  alert("Welcome to the Password Generator! Please follow the prompts to generate a unique password.");
+  
+  confirmLength = prompt("Please enter a password between 8-128 characters.");
   while (confirmLength <= 7 || confirmLength >= 129) {
-  //function will loop until user chooses a password between 8-128
-  confirmLength = prompt (`${confirmLength} does not meet requirements. Please choose between 8-128 characters`)
-}
-alert (`Your password will have ${confirmLength} characters`);
+    //function will loop until user chooses a password between 8-128
+    confirmLength = prompt (`${confirmLength} does not meet requirements. Please try again using 8-128 characters only.`)
+  }
+  
+  alert (`Your password will have ${confirmLength} characters.`);
+  
+  //empty VARIABLE STRING that will get filled once user confrims selection(s)
+  let passwordCharacters = "";
 
-//empty VARIABLE STRING that will get filled once user confrims selection(s)
-let passwordCharacters = "";
-
-confirmNumbers = confirm("Do you want numbers in your password?");
-
+confirmNumbers = confirm("Would you like your password to include numbers?");
   if (confirmNumbers) {
     passwordCharacters = passwordCharacters.concat(numbers)
   } else {
-    alert("Numbers will not be used")
-    }
+  alert("Numbers will not be included.")
+  }
   
-  confirmSymbols = confirm("Do you want symbols in your password?");
 
-  if (confirmSymbols) {
-    passwordCharacters = passwordCharacters.concat(symbols)
+confirmSpecialChars = confirm("Would you like your password to include special characters?");
+  if (confirmSpecialChars) {
+    passwordCharacters = passwordCharacters.concat(specialChars)
   } else {
-    alert("Symbols will not be used")
-    }
+  alert("Special characters will not be included.")
+  }
   
-  confirmLowercase = confirm("Do you want lowercase letters in your password?");
 
+confirmLowercase = confirm("Would you like your password to include lowercase chracters?");
   if (confirmLowercase) {
     passwordCharacters = passwordCharacters.concat(lowercase)
   } else {
-    alert("Lowercase letters will not be used")
-    }
+  alert("Lowercase letters will not be included.")
+  }
   
-  confirmUppercase = confirm("Do you want uppercase letters in your password?");
 
+confirmUppercase = confirm("Would you like your password to include uppercase characters?");
   if (confirmUppercase) {
     passwordCharacters = passwordCharacters.concat(uppercase)
   } else {
-    alert("Uppercase letters will not be used")
-    }
-    //if user selects none of the VARIABLES, user will get an alert.
-  if (confirmNumbers === false && confirmSymbols === false && confirmLowercase === false && confirmUppercase === false) {
-    //No loop in place to take user back to the original options if no paramaters are selected. Will fix!
-    alert("You must select at least one character set.")
+  alert("Uppercase letters will not be included.")
   }
+    
 
-  //empty STRING that is filled by the random password generated, which will be used in the FOR LOOP. 
-  let randomPassword = "";
+  // If user selects not a set of the VARIABLES, user will get an alert.
+  //// No loop in place to take user back to the original options if no paramaters are selected. Comes back UNDEFINDED. Will fix!
+  // Fixed issue with function not looping by using RETURN so the user will now have the option to generate a new password without refreshing the page.
+  if (confirmNumbers === false && confirmSpecialChars === false && confirmLowercase === false && confirmUppercase === false) {
+  alert("No characters selected! You must select at least one character set. Please try again by generating a new password.")
+  {return("No characters selected. Please again.")}
+  }
+  
+  alert("This is your new password! Do not forget to copy it!")
 
   
-  for (let i = 0; i < confirmLength; i++) {
+// Empty STRING that is filled by the random password generated, which will be used in the FOR LOOP. 
+let randomPassword = "";
+
+for (let i = 0; i < confirmLength; i++) {
     randomPassword = randomPassword + passwordCharacters[Math.floor(Math.random() * passwordCharacters.length)];
     console.log(randomPassword)
     console.log(passwordCharacters)
-
     }
     return randomPassword;
 }
