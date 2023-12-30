@@ -76,7 +76,7 @@ confirmSpecialChars = confirm("Would you like your password to include special c
   }
   
 
-confirmLowercase = confirm("Would you like your password to include lowercase chracters? If no, please press cancel.");
+confirmLowercase = confirm("Would you like your password to include lowercase characters? If no, please press cancel.");
   if (confirmLowercase) {
     passwordCharacters = passwordCharacters.concat(lowercase)
   } else {
