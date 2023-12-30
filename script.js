@@ -60,7 +60,7 @@ function generatePassword() {
   //empty VARIABLE STRING that will get filled once user confrims selection(s)
   let passwordCharacters = "";
 
-confirmNumbers = confirm("Would you like your password to include numbers?");
+confirmNumbers = confirm("Would you like your password to include numbers? If no, please press cancel.");
   if (confirmNumbers) {
     passwordCharacters = passwordCharacters.concat(numbers)
   } else {
@@ -68,7 +68,7 @@ confirmNumbers = confirm("Would you like your password to include numbers?");
   }
   
 
-confirmSpecialChars = confirm("Would you like your password to include special characters?");
+confirmSpecialChars = confirm("Would you like your password to include special characters? If no, please press cancel.");
   if (confirmSpecialChars) {
     passwordCharacters = passwordCharacters.concat(specialChars)
   } else {
@@ -76,7 +76,7 @@ confirmSpecialChars = confirm("Would you like your password to include special c
   }
   
 
-confirmLowercase = confirm("Would you like your password to include lowercase chracters?");
+confirmLowercase = confirm("Would you like your password to include lowercase chracters? If no, please press cancel.");
   if (confirmLowercase) {
     passwordCharacters = passwordCharacters.concat(lowercase)
   } else {
@@ -84,7 +84,7 @@ confirmLowercase = confirm("Would you like your password to include lowercase ch
   }
   
 
-confirmUppercase = confirm("Would you like your password to include uppercase characters?");
+confirmUppercase = confirm("Would you like your password to include uppercase characters? If no, please press cancel.");
   if (confirmUppercase) {
     passwordCharacters = passwordCharacters.concat(uppercase)
   } else {
