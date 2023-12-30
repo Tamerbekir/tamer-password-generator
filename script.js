@@ -62,33 +62,37 @@ function generatePassword() {
 
 confirmNumbers = confirm("Would you like your password to include numbers? If no, please press cancel.");
   if (confirmNumbers) {
+    alert("Numbers will be included.")
     passwordCharacters = passwordCharacters.concat(numbers)
   } else {
-  alert("Numbers will not be included.")
+    alert("Numbers will not be included.")
   }
   
 
 confirmSpecialChars = confirm("Would you like your password to include special characters? If no, please press cancel.");
   if (confirmSpecialChars) {
+    alert("Special characters will be included.")
     passwordCharacters = passwordCharacters.concat(specialChars)
   } else {
-  alert("Special characters will not be included.")
+    alert("Special characters will not be included.")
   }
   
 
 confirmLowercase = confirm("Would you like your password to include lowercase chracters? If no, please press cancel.");
   if (confirmLowercase) {
+    alert("Lowercase letters will be included.")
     passwordCharacters = passwordCharacters.concat(lowercase)
   } else {
-  alert("Lowercase letters will not be included.")
+    alert("Lowercase letters will not be included.")
   }
   
 
 confirmUppercase = confirm("Would you like your password to include uppercase characters? If no, please press cancel.");
   if (confirmUppercase) {
+    alert("Uppercase letters will be included.")
     passwordCharacters = passwordCharacters.concat(uppercase)
   } else {
-  alert("Uppercase letters will not be included.")
+    alert("Uppercase letters will not be included.")
   }
     
 
