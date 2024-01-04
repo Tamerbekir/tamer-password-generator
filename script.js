@@ -49,7 +49,7 @@ let confirmUppercase
 function generatePassword() {
   alert("Welcome to the Password Generator! Please follow the prompts to generate a unique password.");
   
-  confirmLength = prompt("Please enter a password between 8-128 characters.");
+  confirmLength = prompt("Please enter a password length between 8-128 characters.");
   while (confirmLength <= 7 || confirmLength >= 129) {
     //function will loop until user chooses a password between 8-128
     confirmLength = prompt (`${confirmLength} does not meet requirements. Please try again using 8-128 characters only.`)
