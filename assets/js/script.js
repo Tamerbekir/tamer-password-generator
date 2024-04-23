@@ -1,18 +1,3 @@
-//! Prompt user to...
-  //! Choose a password length (must be within 8-129 characters)
-    //! Must be within 8-129 characters
-  //! If they want uppercase
-  //! If they want lowercase
-  //! If they want numbers
-  //! If they want symbols
-
-//! Need a variable for...
-  //! Holding the user's choice
-    //! Choice: uppercase, lowercase, symbols, numbers
-
-//! Generate random characters that are between 8-128
-
-
 // Assignment Code
 const generateBtn = document.querySelector("#generate");
 
@@ -26,8 +11,6 @@ passwordText.value = password;
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
-
-//! Starting HW
 
 //length of password, which user will enter when prompt, which needs to be between 8-128.
 //empty STRING that gets filled by the users slected password amount.
@@ -47,12 +30,16 @@ let confirmLowercase
 let confirmUppercase
 
 function generatePassword() {
-  alert("Welcome to the Password Generator! Please follow the prompts to generate a unique password.");
+  alert(`Welcome to the Password Generator! Please follow the 
+    prompts to generate a unique password.`);
   
-  confirmLength = prompt("Please enter a password length between 8-128 characters.");
+  confirmLength = prompt(`Please enter a password length between 
+    8-128 characters.`);
+
   while (confirmLength <= 7 || confirmLength >= 129) {
     //function will loop until user chooses a password between 8-128
-    confirmLength = prompt (`${confirmLength} does not meet requirements. Please try again using 8-128 characters only.`)
+    confirmLength = prompt (`${confirmLength} does not meet requirements. 
+    Please try again using 8-128 characters only.`)
   }
   
   alert (`Your password will have ${confirmLength} characters.`);
@@ -60,7 +47,9 @@ function generatePassword() {
   //empty VARIABLE STRING that will get filled once user confrims selection(s)
   let passwordCharacters = "";
 
-confirmNumbers = confirm("Would you like your password to include numbers? If no, please press cancel.");
+confirmNumbers = confirm(`Would you like your password to include 
+  numbers? If no, please press cancel.`);
+
   if (confirmNumbers) {
     passwordCharacters = passwordCharacters.concat(numbers)
   } else {
@@ -68,7 +57,9 @@ confirmNumbers = confirm("Would you like your password to include numbers? If no
   }
   
 
-confirmSpecialChars = confirm("Would you like your password to include special characters? If no, please press cancel.");
+confirmSpecialChars = confirm(`Would you like your password to include 
+  special characters? If no, please press cancel.`);
+
   if (confirmSpecialChars) {
     passwordCharacters = passwordCharacters.concat(specialChars)
   } else {
@@ -76,7 +67,9 @@ confirmSpecialChars = confirm("Would you like your password to include special c
   }
   
 
-confirmLowercase = confirm("Would you like your password to include lowercase characters? If no, please press cancel.");
+confirmLowercase = confirm(`Would you like your password to include lowercase 
+  characters? If no, please press cancel.`);
+
   if (confirmLowercase) {
     passwordCharacters = passwordCharacters.concat(lowercase)
   } else {
@@ -84,7 +77,9 @@ confirmLowercase = confirm("Would you like your password to include lowercase ch
   }
   
 
-confirmUppercase = confirm("Would you like your password to include uppercase characters? If no, please press cancel.");
+confirmUppercase = confirm(`Would you like your password to include uppercase 
+  characters? If no, please press cancel.`);
+
   if (confirmUppercase) {
     passwordCharacters = passwordCharacters.concat(uppercase)
   } else {
@@ -93,10 +88,12 @@ confirmUppercase = confirm("Would you like your password to include uppercase ch
     
 
   // If user selects not a set of the VARIABLES, user will get an alert.
-  //// No loop in place to take user back to the original options if no paramaters are selected. Comes back UNDEFINDED. Will fix!
-  // Fixed issue with function not looping by using RETURN so the user will now have the option to generate a new password without refreshing the page.
-  if (confirmNumbers === false && confirmSpecialChars === false && confirmLowercase === false && confirmUppercase === false) {
-  alert("No characters selected! You must select at least one character set. Please try again by generating a new password.")
+  if (confirmNumbers === false && confirmSpecialChars === false 
+      && confirmLowercase === false && confirmUppercase === false) {
+
+  alert(`No characters selected! You must select at least one character 
+    set. Please try again by generating a new password.`)
+
   {return("No characters selected. Please try again.")}
   }
   
@@ -107,7 +104,7 @@ confirmUppercase = confirm("Would you like your password to include uppercase ch
 let randomPassword = "";
 
 for (let i = 0; i < confirmLength; i++) {
-    randomPassword = randomPassword + passwordCharacters[Math.floor(Math.random() * passwordCharacters.length)];
+    randomPassword += passwordCharacters[Math.floor(Math.random() * passwordCharacters.length)];
     console.log(randomPassword)
     console.log(passwordCharacters)
     }
